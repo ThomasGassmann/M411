@@ -15,7 +15,7 @@ struct Person {
 
 #pragma region Prototypes for Functions used in this program.
 
-int comparePersons(Person *left, Person *right);
+int comparePeople(Person *left, Person *right);
 
 char getRandUpperCaseChar();
 
@@ -61,7 +61,7 @@ Compares two person structs. If the return value is 0 the two structs are equal.
 return value is greater than 0 the right struct is smaller than the left one. If the return
 value is less than 0 the left struct is smaller than the right one.
 */
-int comparePersons(Person *left, Person *right) {
+int comparePeople(Person *left, Person *right) {
 	/* Compare the first name. */
 	int comparisonResult = strcmp(left->firstName, right->firstName);
 	if (comparisonResult != 0) {
@@ -160,7 +160,7 @@ Person *bubbleSortLinkedList(Person *initialNode) {
 		Person *previous = NULL;
 		/* Loop through the linked list as long as the current node or its next value isn't NULL. */
 		while (current != NULL && current->pNext != NULL) {
-			if (comparePersons(current, current->pNext) > 0) {
+			if (comparePeople(current, current->pNext) > 0) {
 				/* If the comparison succeeds, swap the current node with its next node. */
 				current = swapWithNext(current, previous);
 				/* Changes were made. Set flag to true. */
@@ -195,7 +195,7 @@ Person *insertationSortLinkedList(Person *initialNode) {
 		/* Set current node and the next node for the next iteration.*/
 		Person *current = initialNode;
 		initialNode = initialNode->pNext;
-		if (head == NULL || comparePersons(current, head) < 0) {
+		if (head == NULL || comparePeople(current, head) < 0) {
 			/* If the comparison succeeds or the head is NULL set the next value of the current node and set the head. */
 			current->pNext = head;
 			head = current;
@@ -204,7 +204,7 @@ Person *insertationSortLinkedList(Person *initialNode) {
 			Person *p = head;
 			/* If the head is null or the comparison does not succeed loop through the current state of the head of the list. */
 			while (p != NULL) {
-				if (p->pNext == NULL || comparePersons(current, p->pNext) < 0) {
+				if (p->pNext == NULL || comparePeople(current, p->pNext) < 0) {
 					/* If the end of the list is reached or the comparison succeeds, relink the list.*/
 					current->pNext = p->pNext;
 					p->pNext = current;
@@ -233,7 +233,7 @@ Person *selectionSortLinkedList(Person *head) {
 		b = a->pNext;
 		/* Loop through the current status of the list to select the minimum and set the references. */
 		while (b != NULL) {
-			if (comparePersons(a, b) > 0) {
+			if (comparePeople(a, b) > 0) {
 				/* If the comparison succeeds, relink the nodes. */
 				if (a->pNext == b) {
 					if (a == head) {
