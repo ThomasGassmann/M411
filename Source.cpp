@@ -199,8 +199,7 @@ Person *insertationSortLinkedList(Person *initialNode) {
 			/* If the comparison succeeds or the head is NULL set the next value of the current node and set the head. */
 			current->pNext = head;
 			head = current;
-		}
-		else {
+		} else {
 			Person *p = head;
 			/* If the head is null or the comparison does not succeed loop through the current state of the head of the list. */
 			while (p != NULL) {
