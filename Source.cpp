@@ -67,8 +67,7 @@ int comparePeople(Person *left, Person *right) {
 	if (comparisonResult != 0) {
 		/* If the first names aren't equal, return the comparison result. */
 		return comparisonResult;
-	}
-	else {
+	} else {
 		/* If the first names are equal, return the comparison result of the last name instead of the first name. */
 		return strcmp(left->lastName, right->lastName);
 	}
@@ -248,8 +247,7 @@ Person *selectionSortLinkedList(Person *head) {
 						c = a;
 						d = b;
 						b = b->pNext;
-					}
-					else {
+					} else {
 						/* Exchange the nodes and set the nodes for the next iteration. */
 						a->pNext = b->pNext;
 						b->pNext = a;
@@ -260,8 +258,7 @@ Person *selectionSortLinkedList(Person *head) {
 						d = b;
 						b = b->pNext;
 					}
-				}
-				else {
+				} else {
 					if (a == head) {
 						/* If the head of the list needs to be changed overwrite the head and relink the list. */
 						tmp = b->pNext;
@@ -274,8 +271,7 @@ Person *selectionSortLinkedList(Person *head) {
 						d = b;
 						b = b->pNext;
 						head = a;
-					}
-					else {
+					} else {
 						/* Else, only relink the list and set the variables to be used for the next iteration. */
 						tmp = b->pNext;
 						b->pNext = a->pNext;
@@ -289,8 +285,7 @@ Person *selectionSortLinkedList(Person *head) {
 						b = b->pNext;
 					}
 				}
-			}
-			else {
+			} else {
 				/* If the comparison not succeeds, assign the values to be used for the next iteration. */
 				d = b;
 				b = b->pNext;
@@ -317,11 +312,9 @@ Person *sortLinkedList(Person *initialNode, bool print) {
 	clock_t start = clock();
 	if (result == 'I') {
 		res = insertationSortLinkedList(initialNode);
-	}
-	else if (result == 'B') {
+	} else if (result == 'B') {
 		res = bubbleSortLinkedList(initialNode);
-	}
-	else if (result == 'S') {
+	} else if (result == 'S') {
 		res = selectionSortLinkedList(initialNode);
 	}
 	clock_t end = clock();
